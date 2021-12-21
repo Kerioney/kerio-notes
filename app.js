@@ -6,11 +6,7 @@ const mongoose = require('mongoose')
 const flash = require('connect-flash')
 const session = require('express-session')
 const MongoDBStore = require('connect-mongodb-session')(session)
-
-const store = new MongoDBStore({
-    uri: 'mongodb+srv://admin:admin@projects.dqvmv.mongodb.net/Project1',
-    collection: 'mySessions',
-})
+const favicon = require('serve-favicon')
 
 app.use(flash())
 
@@ -22,7 +18,7 @@ app.use(
         store,
     })
 )
-
+app.use(favicon(path.join(__dirname, 'public', 'icon.ico')))
 app.use(express.urlencoded({ extended: false }))
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.json())
@@ -34,6 +30,10 @@ app.get('*', (req, res) => {
     res.send('404 Page Not Found')
 })
 
+const store = new MongoDBStore({
+    uri: 'mongodb+srv://admin:admin@projects.dqvmv.mongodb.net/Project1',
+    collection: 'mySessions',
+})
 mongoose.connect(
     'mongodb+srv://admin:admin@projects.dqvmv.mongodb.net/Project1'
 )
