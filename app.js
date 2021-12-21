@@ -38,4 +38,4 @@ mongoose.connect(
     'mongodb+srv://admin:admin@projects.dqvmv.mongodb.net/Project1'
 )
 
-app.listen(port, () => console.log(`Server is running....`))
+app.listen(process.env.PORT || port, () => console.log(`Server is running....`))
