@@ -17,7 +17,7 @@ app.post('/addNote', async (req, res) => {
 app.post('/delete', async (req, res) => {
     //await noteModel.findByIdAndDelete({ _id: req.params.id })
     //the normal way
-    const { noteID } = req.body.delete
+    const { noteID } = req.body
     await noteModel.findByIdAndDelete({ _id: noteID })
     // to get the id from the Frontend message
     // the verification way
