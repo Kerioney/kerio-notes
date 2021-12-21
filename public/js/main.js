@@ -1,6 +1,6 @@
 function getID(id) {
-    document.getElementById('deleteNote').value = id
-    //to get the id from the (deleteNote) in the EJS
+    document.getElementById('noteID').value = id
+    //to get the id from the (noteID) in the EJS
     // it take the id from the frontend
 }
 
