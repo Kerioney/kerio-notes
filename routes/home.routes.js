@@ -14,6 +14,6 @@ app.get('/logout', homeController.logout)
 
 app.get('/', homeController.default)
 
-//app.get('*', homeController.notFound)
+app.get('*', homeController.notFound)
 
 module.exports = app
