@@ -7,9 +7,9 @@ module.exports.home = async (req, res) => {
 }
 
 module.exports.addNote = async (req, res) => {
-    let note = await noteModel.find({ userID: req.session.myID })
-    //to find all the user notes from his ID
-    res.render('home.ejs', { myID: req.session.myID, note })
+    const { title, desc } = req.body
+    await noteModel.insertMany({ userID: req.session.myID, title, desc })
+    res.redirect('/home')
 }
 
 module.exports.delete = async (req, res) => {
