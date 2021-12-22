@@ -30,10 +30,6 @@ app.use(require('./routes/home.routes'))
 app.use(require('./routes/login.routes'))
 app.use(require('./routes/register.routes'))
 
-app.get('*', (req, res) => {
-    res.send('404 Page Not Found')
-})
-
 mongoose.connect(
     'mongodb+srv://admin:admin@projects.dqvmv.mongodb.net/Project1'
 )
